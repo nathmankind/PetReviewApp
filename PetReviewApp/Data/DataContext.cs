@@ -28,7 +28,7 @@ namespace PetReviewApp.Data
                 .WithMany(pc => pc.PokemonCategories)
                 .HasForeignKey(c => c.PokemonId);
             modelBuilder.Entity<PokemonCategory>()
-                .HasOne(p => p.Catgory)
+                .HasOne(p => p.Category)
                 .WithMany(pc => pc.PokemonCategories)
                 .HasForeignKey(c => c.CategoryId);
 
