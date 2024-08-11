@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using PetReviewApp.Data;
+
 namespace PetReviewApp
 {
     public class Program
@@ -13,7 +16,11 @@ namespace PetReviewApp
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            // Getting our program file setup for the app
+            builder.Services.AddDbContext<DataContext>( options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 
